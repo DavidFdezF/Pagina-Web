@@ -1,0 +1,175 @@
+body {
+    background-color: #f7f5f2;
+    overflow-x: hidden;
+    margin: 0; 
+    padding: 0; 
+    min-height: 3000px;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+nav.navbar {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px; 
+    margin-right: 10px; 
+    font-size: 18px;
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+.navbar-logo {
+    height: 40px; 
+    width: auto; 
+    margin-left: 15px;
+}
+
+.nav-item {
+    padding: 20px 8px;
+    margin: 0px 3px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    color: grey;
+    position: static;
+    transition: color 0.3s ease;
+}
+
+.nav-item.active {
+    color: #A0D683;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    color: #A0D683;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none;
+}
+
+.nav-link {
+    padding: 5px;
+}
+
+.navbar-collapse.collapse.in {
+    display: block !important;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 10px;
+}
+
+.navbar-toggler-icon-custom {
+    display: inline-block;
+    background-image: none; 
+    text-align: center;
+}
+
+.navbar-toggler-icon-custom i {
+    font-size: 1.5rem; 
+    color: #A0D683; 
+    transition: color 0.3s ease;
+}
+
+.navbar-toggler-icon-custom i:hover {
+    color: #A0D683; 
+}
+
+.nav-link.active {
+    font-weight: bold; 
+    color: #000; 
+}
+
+@media (max-width: 767px) {
+    .nav-item {
+        width: 100%; 
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .navbar-nav {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu {
+        left: 0 !important;
+        position: relative !important;
+        padding: 20px;
+    }
+
+    .navbar-toggler {
+        padding: 5px;
+    }
+
+    .navbar-toggler-icon-custom i {
+        font-size: 1.8rem; 
+    }
+}
+
+nav.navbar {
+    margin-bottom: 0; /* Elimina cualquier margen inferior del navbar */
+}
+
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Siempre por encima */
+  }
+  
+  .cookie-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cookie-content p {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .cookie-content .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  

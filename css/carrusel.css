@@ -1,0 +1,285 @@
+/* Estilos del carrusel */
+.carousel {
+    margin: 0; /* Elimina márgenes adicionales */
+    padding: 0; /* Elimina paddings adicionales */
+    position: relative;
+    padding-top: 56.25%; /* Ajustar altura del carrusel (3/4 de 75%) */
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 100px;
+}
+
+.carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    counter-increment: item;
+}
+
+.carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+    .carousel__snapper {
+        animation-name: tonext, snap;
+        animation-timing-function: ease;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+    }
+
+    .carousel__slide:last-child .carousel__snapper {
+        animation-name: tostart, snap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+        animation-name: none;
+    }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+    animation-name: none;
+}
+
+.carousel__navigation {
+    display: none; /* Oculta la navegación inferior */
+}
+
+
+/* Configuración de las imágenes */
+.carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta las imágenes para cubrir el espacio sin distorsión */
+    display: block;
+    opacity: 0.85;
+}
+
+.carousel__text {
+  position: absolute;
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Ajusta el punto de referencia al centro */
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Aumenta la legibilidad del texto */
+  z-index: 2; /* Asegura que esté por encima de la imagen */
+  width: 90%; /* Ajusta el ancho para que no se desborde en pantallas pequeñas */
+}
+
+.carousel__text h5 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carousel__text p {
+  font-size: 1.2rem;
+}
+
+
+
+
+/* Animaciones */
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .carousel__text {
+      width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  .carousel__text h5 {
+      font-size: 1.2rem;
+  }
+
+  .carousel__text p {
+      font-size: 0.9rem;
+  }
+}
+
+/* Ajuste para resoluciones grandes (≥ 1200px) */
+@media (min-width: 1200px) {
+    .carousel__text h5 {
+        font-size: 6rem; /* Título más grande */
+    }
+
+    .carousel__text p {
+        font-size: 3rem; /* Subtítulo más grande */
+    }
+}
+
+.instagram-section {
+  display: flex;
+  gap: 20px; /* Espaciado entre el post y el texto */
+  margin: 20px 30px; /* Márgenes del contenedor general */
+  align-items: center; /* Centra verticalmente el texto con el post */
+  margin-top: 50px;
+}
+
+.instagram-media {
+  flex: 1; /* El post ocupará la mitad del espacio disponible */
+  margin-left: 20px; /* Margen desde el borde izquierdo */
+}
+
+.instagram-text {
+  flex: 1;
+  text-align: left;
+  font-size: 1.6rem; /* Tamaño del texto más grande */
+  line-height: 1.6; /* Mejor espaciado entre líneas */
+  font-family: 'Georgia', serif; /* Cambia a una fuente más elegante */
+  color: #333; /* Color más suave para la lectura */
+  margin-top: 80px;
+
+}
+
+
+.instagram-text h2 {
+  font-size: 2rem; /* Título más grande */
+  font-weight: bold; /* Destacar el título */
+  margin-bottom: 15px; /* Separación del párrafo */
+  color: #222; /* Color ligeramente más oscuro */
+}
+
+
+.instagram-text p {
+  color: #555; /* Color del texto */
+}
+
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 1366px) {
+  .carousel__text h5 {
+      font-size: 1.5rem;
+  }
+
+  .carousel__text p {
+      font-size: 1rem;
+  }
+
+  .instagram-section {
+    display: flex;
+    gap: 20px; /* Espaciado entre el post y el texto */
+    margin: 20px 30px; /* Márgenes del contenedor general */
+    align-items: center; /* Centra verticalmente el texto con el post */
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+  }
+  
+  .instagram-text {
+    flex: 1;
+    text-align: left;
+    font-size: 1.2rem; /* Tamaño del texto más grande */
+    line-height: 1.6; /* Mejor espaciado entre líneas */
+    font-family: 'Georgia', serif; /* Cambia a una fuente más elegante */
+    color: #333; /* Color más suave para la lectura */
+    margin-top: 0px;
+  
+  }
+
+  
+  
+  .instagram-text h2 {
+    font-size: 1.6rem; /* Título más grande */
+    font-weight: bold; /* Destacar el título */
+    margin-bottom: 15px; /* Separación del párrafo */
+    color: #222; /* Color ligeramente más oscuro */
+  }
+  
+  
+  .instagram-text p {
+    color: #555; /* Color del texto */
+  }
+}
+
+@media (max-width: 769px) {
+  
+  .instagram-text {
+    flex: 1;
+    text-align: left;
+    font-size: 1rem; /* Tamaño del texto más grande */
+    line-height: 1.6; /* Mejor espaciado entre líneas */
+    font-family: 'Georgia', serif; /* Cambia a una fuente más elegante */
+    color: #333; /* Color más suave para la lectura */
+    margin-top: 0px;
+  
+  }
+
+  
+  
+  .instagram-text h2 {
+    font-size: 1rem; /* Título más grande */
+    font-weight: bold; /* Destacar el título */
+    margin-bottom: 15px; /* Separación del párrafo */
+    color: #222; /* Color ligeramente más oscuro */
+  }
+  
+  
+  .instagram-text p {
+    color: #555; /* Color del texto */
+  }
+}
+
